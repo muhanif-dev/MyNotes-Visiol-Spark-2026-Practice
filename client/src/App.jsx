@@ -8,13 +8,14 @@ function App() {
        const response = await fetch(
        `${import.meta.env.VITE_API_BASE_URL}/api/health`
       );
-      if(!response) {
+      if(!response.ok) {
         throw new Error("Backend Connection Failed");
       }
       const data = await response.json();
 
       setMessage(data.message);
      } catch (error) {
+      setMessage("Error");
       console.error(error.message);
      }
     };
