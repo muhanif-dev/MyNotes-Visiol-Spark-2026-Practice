@@ -6,10 +6,10 @@ function App() {
     const fetchBackend = async () => {
      try {
        const response = await fetch(
-        "http://localhost:5000/api/health"
+       `${import.meta.env.VITE_API_BASE_URL}/api/health`
       );
       if(!response) {
-        throw new Error("Failed");
+        throw new Error("Backend Connection Failed");
       }
       const data = await response.json();
 
@@ -29,45 +29,3 @@ function App() {
   )
 }
 export default App;
-
-
-// import { useEffect, useState } from "react";
-
-// function App() {
-//   const [message, setMessage] = useState("Connecting to backend...");
-
-//   useEffect(() => {
-//     const fetchBackend = async () => {
-//       try {
-//         const response = await fetch(
-//           "http://localhost:5000/api/health"
-//         );
-
-//         if (!response.ok) {
-//           throw new Error("Backend request failed");
-//         }
-
-//         const data = await response.json();
-
-//         setMessage(data.message);
-//       } catch (error) {
-//         setMessage("Backend connection failed!");
-//         console.error(error);
-//       }
-//     };
-
-//     fetchBackend();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>MyNotes Application</h1>
-
-//       <h2>Backend Connection Status</h2>
-
-//       <p>{message}</p>
-//     </div>
-//   );
-// }
-
-// export default App;
