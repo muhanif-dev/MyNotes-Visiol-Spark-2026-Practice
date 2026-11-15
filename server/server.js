@@ -19,7 +19,7 @@ app.use(cors({
 app.get("/api/health", (req, res) => {
     res.status(200).json({
         status: "success",
-        message: "MyNotes server is running..."
+        message: "MyNotes server is runninggggg..."
     })
 });
 
